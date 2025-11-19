@@ -15,8 +15,6 @@ Otherwise, stop the process.
 Repeat this process with the new number as long as you keep finding the number.
 Return the final value of original.
 
- 
-
 Example 1:
 
 Input: nums = [5,3,6,1,12], original = 3
