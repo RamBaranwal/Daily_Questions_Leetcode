@@ -1,3 +1,4 @@
+/*
 # [**3228. Maximum Number of Operations to Move Ones to the End**](https://leetcode.com/problems/maximum-number-of-operations-to-move-ones-to-the-end/)
 
 Solved
@@ -47,7 +48,9 @@ We can perform the following operations:
 - `1 <= s.length <= 105`
 - `s[i]` is either `'0'` or `'1'`.
 
-```java
+`*/
+class Solution{
+public int operation(String s){
 int n = s.length();
         long onesLeft = 0;
         long ans = 0;
@@ -66,4 +69,6 @@ int n = s.length();
             }
         }
         return ans;
-```
+    }
+}
+
