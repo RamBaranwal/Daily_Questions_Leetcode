@@ -1,5 +1,7 @@
 class Solution {
     public int[][] largestLocal(int[][] grid) {
+        // just do what the question needed 
+        // traverse the loop 3 X 3 time but add column and row each time but it must be smaler than n - 2 x n - 2
         int[][] res = new int[grid.length - 2][grid.length - 2];
         int row = 0;
         int col = 0;
