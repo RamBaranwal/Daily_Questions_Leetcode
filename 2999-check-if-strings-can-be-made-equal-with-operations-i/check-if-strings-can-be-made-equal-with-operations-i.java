@@ -7,6 +7,7 @@ class Solution {
         return sb.toString();
     }
     public boolean canBeEqual(String s1, String s2) {
+        // check all the possible ways that the string is move 
         if(s1.equals(s2)) return true;
         s1 = swap(s1, 2, 0);
         if(s1.equals(s2)) return true;
