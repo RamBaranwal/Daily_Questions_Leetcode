@@ -7,16 +7,12 @@ class Solution {
         return sb.toString();
     }
     public boolean canBeEqual(String s1, String s2) {
-        System.out.println(s1);
         if(s1.equals(s2)) return true;
         s1 = swap(s1, 2, 0);
-        System.out.println(s1);
         if(s1.equals(s2)) return true;
         s1 = swap(s1, 3, 1);
-        System.out.println(s1);
         if(s1.equals(s2)) return true;
         s1 = swap(s1, 2, 0);
-        System.out.println(s1);
         if(s1.equals(s2)) return true;
         return false;
     }
