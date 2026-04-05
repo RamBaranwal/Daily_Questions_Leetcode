@@ -1,24 +1,10 @@
 class Solution {
     public boolean judgeCircle(String moves) {
-        int upDownShift = 0;
-        int leftRightShift = 0;
+        int[] fre = new int[26];
         for(char ch : moves.toCharArray()){
-            if(ch == 'U'){
-                upDownShift++;
-            }
-            else if(ch == 'D'){
-                upDownShift--;
-            }
-            else if(ch == 'L'){
-                leftRightShift++;
-            }
-            else{
-                leftRightShift--;
-            }
+            fre[ch - 'A']++;
         }
-        if(upDownShift == 0 && leftRightShift == 0){
-            return true;
-        }
+        if(fre['L' - 'A'] == fre['R' - 'A'] && fre['D' - 'A'] == fre['U' - 'A']) return true;
         return false;
     }
 }
