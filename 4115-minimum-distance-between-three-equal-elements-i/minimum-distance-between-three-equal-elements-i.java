@@ -2,7 +2,10 @@ class Solution {
     public int minimumDistance(int[] nums) {
         HashMap<Integer, ArrayList<Integer>> map = new HashMap<>();
         for(int i = 0 ; i < nums.length; i++){
-            map.computeIfAbsent(nums[i], k -> new ArrayList<>()).add(i);
+            if(!map.containsKey(nums[i])){
+                map.put(nums[i], new ArrayList<>());
+            }
+            map.get(nums[i]).add(i);
         }
 
         int ans = Integer.MAX_VALUE;
