@@ -1,6 +1,8 @@
 class Solution {
     public int getMinDistance(int[] nums, int target, int start) {
-        return helper(nums, 0, target, Integer.MAX_VALUE, start);
+        int min = Integer.MAX_VALUE;
+        int res = helper(nums, 0, target, min, start);
+        return res;
     }
     private int helper(int[] nums, int index, int target, int min, int start){
         if(nums.length == index){
