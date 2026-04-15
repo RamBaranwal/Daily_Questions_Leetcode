@@ -15,7 +15,7 @@ class Solution {
                 n--;
             }
         }
-        while(k >= 0 && n >= 0){
+        while(n >= 0){
             nums1[k] = nums2[n];
             k--;
             n--;
