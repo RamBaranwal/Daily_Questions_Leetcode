@@ -1,18 +1,16 @@
 class Solution {
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> outer = new ArrayList<>();
-
-        outer.add(new ArrayList<>());
-
-        for(int num : nums){
-            int n = outer.size();
-            for(int i = 0; i < n; i++){
-                List<Integer> inner = new ArrayList<>(outer.get(i));
-                inner.add(num);
-                outer.add(inner);
-            }
+        helper(nums, 0, new ArrayList<>(), outer);
+        return outer;
+    }
+    private List<List<Integer>> helper(int[] nums, int index, List<Integer> current, List<List<Integer>> outer){
+        outer.add(new ArrayList<>(current));
+        for(int i = index; i < nums.length; i++){
+            current.add(nums[i]);
+            helper(nums, i + 1, current, outer);
+            current.remove(current.size() - 1);
         }
-
         return outer;
     }
 }
