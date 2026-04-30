@@ -6,10 +6,16 @@ class Solution {
         int n = GCD(a, b);
         return n;
     }
-    private int GCD(int a, int b){
-        if(a == 0){
-            return b;
+    private int GCD(int a , int b)
+    {
+        while(b !=0)
+        {
+            int t=b;
+            b=a%b;
+            a=t;
         }
-        return GCD(b % a, a);
+        return a;
+
     }
+
 }
