@@ -1,14 +1,9 @@
 class Solution {
-    public static int gcd(int a , int b)
-    {
-        while(b !=0)
-        {
-            int t=b;
-            b=a%b;
-            a=t;
+    private int gcd(int a, int b){
+        if(a == 0){
+            return b;
         }
-        return a;
-
+        return gcd(b % a, a);
     }
     public int findGCD(int[] nums) {
 
