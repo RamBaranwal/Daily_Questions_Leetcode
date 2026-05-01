@@ -14,6 +14,7 @@ class Solution {
         // (i+1)×nums[i] - i×nums[i] = nums[i]
         // but for last index it will be multiply by * 0
         // so F(k) = F(k-1) + sum - n × nums[n-k]
+        // at every loop we do it so every time its gives us the rotated sum * i
 
         for(int k = 1; k < nums.length; k++){
             f = f + sum - (nums.length * nums[nums.length - k]);
