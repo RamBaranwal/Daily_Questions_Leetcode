@@ -1,15 +1,16 @@
 class Solution {
     public int rotatedDigits(int n) {
         int count = 0;
-        for(int i = 1; i <= n; i++){
-            if(isGoodDigit(i)){
-                System.out.println(i);
+        
+        for (int i = 1; i<= n; i++) {
+            if(isGood(i)) {
                 count++;
             }
         }
         return count;
+        
     }
-    private boolean isGoodDigit(int num) {
+    private boolean isGood(int num) {
         boolean isDifferent = false;
         
         while(num > 0) {
