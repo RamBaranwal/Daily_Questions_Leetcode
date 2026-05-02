@@ -9,14 +9,20 @@ class Solution {
         }
         return count;
     }
-    private boolean isGoodDigit(int n){
-        String s = String.valueOf(n);
-        if(s.contains("3") || s.contains("4") || s.contains("7")) {
-            return false;
+    private boolean isGoodDigit(int num) {
+        boolean isDifferent = false;
+        
+        while(num > 0) {
+            int digit = num % 10;
+            num /= 10;
+            
+            if (digit == 3 || digit == 4 ||digit == 7) {
+                return false;
+            }
+            if (digit == 2 || digit == 5 || digit == 6 || digit == 9) {
+                isDifferent = true;
+            }
         }
-        if(s.contains("2") || s.contains("5") || s.contains("6") || s.contains("9")) {
-            return true;
-        }
-        return false;
+        return isDifferent;
     }
 }
