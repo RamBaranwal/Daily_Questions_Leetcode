@@ -9,6 +9,9 @@ class Solution {
             list.add(s);
             return;
         }
+
+        // this is not same as the sebsequnce of the subset of string abc because
+        // there is always two choices here only on condition based choices moves
         if(l < n) helper(l + 1, r, n, s + "(", list);
         if(r < l) helper(l, r + 1, n, s + ")", list);
     }
