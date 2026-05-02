@@ -1,29 +1,21 @@
 class Solution {
     public int rotatedDigits(int n) {
         int count = 0;
-        
-        for (int i = 1; i<= n; i++) {
-            if(isGood(i)) {
+        for(int i = 1; i <= n; i++){
+            if(isGoodDigit(i)){
                 count++;
             }
         }
         return count;
-        
     }
-    private boolean isGood(int num) {
-        boolean isDifferent = false;
-        
-        while(num > 0) {
-            int digit = num % 10;
-            num /= 10;
-            
-            if (digit == 3 || digit == 4 ||digit == 7) {
-                return false;
-            }
-            if (digit == 2 || digit == 5 || digit == 6 || digit == 9) {
-                isDifferent = true;
-            }
+    private boolean isGoodDigit(int n){
+        String s = String.valueOf(n);
+        if(s.contains("3") || s.contains("4") || s.contains("7")) {
+            return false;
         }
-        return isDifferent;
+        if(s.contains("2") || s.contains("5") || s.contains("6") || s.contains("9")) {
+            return true;
+        }
+        return false;
     }
 }
