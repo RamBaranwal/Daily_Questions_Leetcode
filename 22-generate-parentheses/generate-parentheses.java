@@ -1,18 +1,20 @@
 class Solution {
     public List<String> generateParenthesis(int n) {
-        List<String> list = new ArrayList<>();
-        helper(0, 0, n, "", list);
-        return list;
+        return helper("", 0, 0, n);
     }
-    private void helper(int l, int r, int n, String s, List<String> list){
+    private List<String> helper(String p, int l, int r, int n){
+        List<String> res = new ArrayList<>();
         if(r == n){
-            list.add(s);
-            return;
+            res.add(p);
+            return res;
+        }
+        if(l < n){
+            res.addAll(helper(p + "(", l + 1, r, n));
+        }
+        if(r < l){
+            res.addAll(helper(p + ")", l, r + 1, n));
         }
 
-        // this is not same as the sebsequnce of the subset of string abc because
-        // there is always two choices here only on condition based choices moves
-        if(l < n) helper(l + 1, r, n, s + "(", list);
-        if(r < l) helper(l, r + 1, n, s + ")", list);
+        return res;
     }
 }
