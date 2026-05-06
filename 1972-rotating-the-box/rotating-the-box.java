@@ -1,9 +1,4 @@
 class Solution {
-    private void swap(char[][] boxGrid, int k, int i, int j){
-        char temp = boxGrid[k][i];
-        boxGrid[k][i] = boxGrid[k][j];
-        boxGrid[k][j] = temp;
-    }
     private char[][] transpose(char[][] boxGrid){
         int cols = boxGrid[0].length;
         int rows = boxGrid.length;
