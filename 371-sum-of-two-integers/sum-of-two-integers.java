@@ -1,5 +1,18 @@
 class Solution {
     public int getSum(int a, int b) {
-        return a + b;
+
+        while (b != 0) {
+
+            // carry
+            int carry = (a & b) << 1;
+
+            // sum without carry
+            a = a ^ b;
+
+            // update b as carry
+            b = carry;
+        }
+
+        return a;
     }
 }
