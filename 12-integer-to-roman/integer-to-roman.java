@@ -5,6 +5,7 @@ class Solution {
         
         String res = "";
         for(int i = 0; i < values.length; i++){
+            if(num == 0) break;
             while(num >= values[i]){
                 res = res + roman[i];
                 num -= values[i];
