@@ -16,10 +16,12 @@ class Solution {
                             board[i][j] = '.';
                         }
                     }
+                    // it will chack if all row and col and box have all number then it is wrong again do it
                     return false;
                 }
             }
         }
+        // if all are corect 
         return true;
     }
 
