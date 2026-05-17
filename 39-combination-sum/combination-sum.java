@@ -14,11 +14,12 @@ class Solution {
         }
 
         current.add(candidates[index]);
-        // take the first 
+        // take it 
         helper(res, current, target - candidates[index], candidates, index);
         // remove it so it will look same to not pick the number
         current.remove(current.size() - 1);
 
+        // skip it
         helper(res, current, target, candidates, index + 1);
     }
 }
