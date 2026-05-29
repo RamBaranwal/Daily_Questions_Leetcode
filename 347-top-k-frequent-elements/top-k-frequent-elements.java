@@ -15,7 +15,7 @@ class Solution {
                 }
             }
             res.add(maxEle);
-            map.put(maxEle, 0);
+            map.remove(maxEle);
         }
 
         int[] ans = new int[k];
