@@ -17,18 +17,18 @@ class Solution {
                 map.put(num, 1);
             }
         }
-        int maxFre = 0;
         int sum = 0;
-        for(int key : map.keySet()){
-            if(map.get(key) > maxFre){
-                maxFre = map.get(key);
+        int maxFre = 0;
+        for(Map.Entry<Integer, Integer> entry : map.entrySet()){
+            int fre = entry.getValue();
+            if(fre > maxFre){
+                maxFre = fre;
                 sum = 0;
             }
-            if(map.get(key) == maxFre){
-                sum += map.get(key);
+            if(fre == maxFre){
+                sum += fre;
             }
         }
-
         return sum;
     }
 }
