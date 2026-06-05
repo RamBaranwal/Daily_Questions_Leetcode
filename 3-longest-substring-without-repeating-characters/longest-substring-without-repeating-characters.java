@@ -9,7 +9,7 @@ class Solution {
                 left++;
             }
             set.add(s.charAt(right));
-            maxLen = Math.max(maxLen, right - left + 1);
+            maxLen = Math.max(maxLen, set.size());
         }
         return maxLen;
     }
