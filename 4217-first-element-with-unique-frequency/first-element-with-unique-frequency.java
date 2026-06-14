@@ -21,8 +21,7 @@ class Solution {
         }
 
         for(int num : nums){
-            int fre = map.get(num);
-            if(freCount.get(fre) == 1){
+            if(freCount.get(map.get(num)) == 1){
                 return num;
             }
         }
