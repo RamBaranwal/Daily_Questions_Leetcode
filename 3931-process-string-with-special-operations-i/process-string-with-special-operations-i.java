@@ -9,10 +9,12 @@ class Solution {
                 }
             }
             else if(ch == '#'){
-                sb = sb.append(sb);
+                // sb = sb.append(sb);
+                sb.append(sb.toString());
             }
             else if(ch == '%'){
-                sb = sb.reverse();
+                // ab = sb.reverse();
+                sb.reverse();
             }
             else{
                 sb.append(ch);
