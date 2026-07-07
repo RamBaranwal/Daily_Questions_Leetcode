@@ -1,21 +1,24 @@
 class Solution {
     public long sumAndMultiply(int n) {
-        StringBuilder sb = new StringBuilder();
         int sum = 0;
+        int rev = 0;
         while(n > 0){
-            int lastDigit = n % 10;
-            if(lastDigit != 0){
-                sb.append(lastDigit);
+            int last = n % 10;
+            if(last != 0){
+                rev = 10 * rev + last;
             }
-            sum += lastDigit;
+            sum += last;
             n /= 10;
+            // System.out.println(rev + ",,");
+            // System.out.println(sum + "..");
         }
-        if(sb.isEmpty()){
-            return 0;
+        
+        int ori = 0;
+        while(rev != 0){
+            int last = rev % 10;
+            ori = 10 * ori + last;
+            rev /= 10;
         }
-        sb.reverse();
-        String s = sb.toString();
-        long l = Long.parseLong(s);
-        return l * sum;
+        return (long)ori * sum;
     }
 }
