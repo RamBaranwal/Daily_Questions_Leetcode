@@ -4,7 +4,7 @@ class Solution {
         Arrays.sort(nums2);
         int[] mergeArray = merge(nums1, nums2);
         int len = mergeArray.length;
-        System.out.println(Arrays.toString(mergeArray));
+        // System.out.println(Arrays.toString(mergeArray));
         if(len % 2 != 0){
             return (double)mergeArray[len / 2];
         }
