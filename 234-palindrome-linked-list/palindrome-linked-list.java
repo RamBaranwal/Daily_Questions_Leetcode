@@ -48,9 +48,9 @@ class Solution {
             left = left.next;
             revList = revList.next;
         }
-        if(left != null){
-            return false;
-        }
+        // if(left != null){
+        //     return false;
+        // }
         return true;
     }
 }
