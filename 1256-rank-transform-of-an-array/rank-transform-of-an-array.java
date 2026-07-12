@@ -15,16 +15,10 @@ class Solution {
             sortMap.put(key, rank++);
         }
 
-        int[][] res = new int[arr.length][2];
+        // int[] res = new int[arr.length];
         for(int i = 0; i < arr.length; i++){
-            res[i][0] = arr[i];
-            res[i][1] = sortMap.get(arr[i]);
+            arr[i] = sortMap.get(arr[i]);
         }
-
-        int[] last = new int[arr.length];
-        for(int i = 0; i < arr.length; i++){
-            last[i] = res[i][1];
-        }
-        return last;
+        return arr;
     }
 }
