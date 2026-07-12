@@ -14,10 +14,6 @@ class Solution {
         for(Integer key : sortMap.keySet()){
             sortMap.put(key, rank++);
         }
-        // for(HashMap.Entry<Integer, Integer> entry : sortMap.entrySet()){
-        //     System.out.println(entry.getKey() + " -> " + entry.getValue());
-        // }
-        // return new int[] {0, 0};
 
         int[][] res = new int[arr.length][2];
         for(int i = 0; i < arr.length; i++){
