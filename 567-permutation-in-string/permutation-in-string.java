@@ -1,37 +1,34 @@
 class Solution {
     public boolean checkInclusion(String s1, String s2) {
-        if (s1.length() > s2.length()) {
-            return false;
+        if(s1.length() > s2.length()) return false;
+        HashMap<Character, Integer> map1 = new HashMap<>();
+        HashMap<Character, Integer> map2 = new HashMap<>();
+
+        for(char ch : s1.toCharArray()){
+            map1.put(ch, map1.getOrDefault(ch, 0) + 1);
         }
-        int[] fre = new int[26];
-        for(int i = 0; i < s1.length(); i++){
-            fre[s1.charAt(i) - 'a']++;
+        int k = s1.length();
+        for(int i = 0; i < k; i++){
+            map2.put(s2.charAt(i), map2.getOrDefault(s2.charAt(i), 0) + 1);
         }
-        // System.out.println(Arrays.toString(fre));
-        int len = s1.length();
-        for(int i = 0; i < len; i++){
-            fre[s2.charAt(i) - 'a']--;
-        }
-        // System.out.println(Arrays.toString(fre));
-        if(isEmpty(fre)){
+        if(map1.equals(map2)){
             return true;
         }
-        for(int i = len; i < s2.length(); i++){
-            fre[s2.charAt(i - len) - 'a']++;
-            fre[s2.charAt(i) - 'a']--;
-            System.out.println(Arrays.toString(fre));
-            if(isEmpty(fre)){
+        for(int i = k; i < s2.length(); i++){
+            char leftCh = s2.charAt(i - k);
+            map2.put(leftCh, map2.get(leftCh) - 1);
+
+            if(map2.get(leftCh) == 0){
+                map2.remove(leftCh);
+            }
+
+            char rightCh = s2.charAt(i);
+            map2.put(rightCh, map2.getOrDefault(rightCh, 0) + 1);
+
+            if(map1.equals(map2)){
                 return true;
             }
         }
         return false;
-    }
-    private boolean isEmpty(int[] arr){
-        for(int i = 0; i < 26; i++){
-            if(arr[i] != 0){
-                return false;
-            }
-        }
-        return true;
     }
 }
