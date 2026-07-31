@@ -15,22 +15,17 @@ class Solution {
             char ch = entry.getKey();
             if(count < 8){
                 int freq = entry.getValue();
-                // System.out.println(freq * value + "...");
                 sum += freq * value;
-                // System.out.println(sum + "....");
                 count++;
             }
             else{
                 value++;
                 count = 0;
                 int freq = entry.getValue();
-                // System.out.println(freq * value + ".");
                 sum += freq * value;
-                // System.out.println(sum + "..");
                 count++;
             }
         }
-        // System.out.println(list);
 
         return sum;
     }
