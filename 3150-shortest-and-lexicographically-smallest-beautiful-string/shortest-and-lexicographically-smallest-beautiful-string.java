@@ -14,10 +14,8 @@ class Solution {
         for(int i = 0; i < index.size() - k + 1; i++){
             String current = s.substring(index.get(i), index.get(i + k - 1) + 1);
 
-            if (ans.equals("") ||
-                current.length() < ans.length() ||
-                (current.length() == ans.length()
-                    && current.compareTo(ans) < 0)) {
+            if (ans.equals("") || current.length() < ans.length() || 
+                    (current.length() == ans.length() && current.compareTo(ans) < 0)) {
 
                 ans = current;
             }
