@@ -10,47 +10,41 @@
  */
 class Solution {
     private ListNode getMid(ListNode n){
-        ListNode slow = n;
-        ListNode fast = n;
-        ListNode prev = null;
-        if(n.next == null || n == null){
+        if(n == null || n.next == null){
             return n;
         }
+        ListNode slow = n;
+        ListNode fast = n;
         while(fast != null && fast.next != null){
-            prev = slow;
             slow = slow.next;
             fast = fast.next.next;
         }
-        prev.next = null;
         return slow;
     }
 
-    private ListNode reverse(ListNode n){
+    private ListNode rev(ListNode n){
         ListNode curr = n;
         ListNode prev = null;
         while(curr != null){
-            ListNode nextNode = curr.next;
+            ListNode next = curr.next;
             curr.next = prev;
             prev = curr;
-            curr = nextNode;
+            curr = next;
         }
         return prev;
     }
     public boolean isPalindrome(ListNode head) {
         ListNode mid = getMid(head);
-        ListNode left = head;
-        ListNode right = mid;
-        ListNode revList = reverse(right);
-        while(left != null && revList != null){
-            if(left.val != revList.val){
+        ListNode revSecPart = rev(mid);
+        System.out.println(mid.toString());
+        System.out.println(revSecPart.toString());
+        while(head != null && revSecPart != null){
+            if(head.val != revSecPart.val){
                 return false;
             }
-            left = left.next;
-            revList = revList.next;
+            head = head.next;
+            revSecPart = revSecPart.next;
         }
-        // if(left != null){
-        //     return false;
-        // }
         return true;
     }
 }
