@@ -19,7 +19,7 @@ class Solution {
         while(str.length() != 4){
             str = "0" + str;
         }
-        System.out.println(str);
+        // System.out.println(str);
         String str1 = "" + str.charAt(0) + str.charAt(2);
         String str2 = "" + str.charAt(1) + str.charAt(3);
         int new1 = Integer.parseInt(str1);
