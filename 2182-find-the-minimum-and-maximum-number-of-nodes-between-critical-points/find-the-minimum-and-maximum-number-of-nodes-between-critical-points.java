@@ -10,36 +10,34 @@
  */
 class Solution {
     public int[] nodesBetweenCriticalPoints(ListNode head) {
-        ListNode prev = head;
+        ListNode pre = head;
         ListNode curr = head.next;
         ListNode next = head.next.next;
+        int index = 1;
 
-        if(curr == null || next == null){
-            return new int[] {-1, -1};
-        }
-        int index = 2;
-        ArrayList<Integer> store = new ArrayList<>();
-
-        while(curr != null && next != null){
-            if((prev.val < curr.val && curr.val > next.val) ||
-            (prev.val > curr.val && curr.val < next.val)){
-                store.add(index);
+        ArrayList<Integer> list = new ArrayList<>();
+        while(curr.next != null){
+            if(((pre.val > curr.val) && (curr.val < next.val)) || ((pre.val < curr.val) && (curr.val > next.val))){
+                list.add(index);
             }
-            index++;
-            prev = curr;
+            pre = curr;
             curr = next;
             next = next.next;
+            index++;
         }
-        if(store.isEmpty() || store.size() == 1){
-            return new int[] {-1, -1};
-        }
-        
-        int min = Integer.MAX_VALUE;
-        for(int i = 1; i < store.size(); i++){
-            min = Math.min(min, store.get(i) - store.get(i - 1));
-        }
-        int max = store.get(store.size() - 1) - store.get(0);
 
-        return new int[] {min, max};
+        Collections.sort(list);
+        System.out.println(list);
+        int[] arr = {-1, -1};
+        if(list.size() > 1){
+            arr[1] = list.get(list.size() - 1) - list.get(0);
+            int min = Integer.MAX_VALUE;
+            for(int i = 1; i < list.size(); i++){
+                min = Math.min(min, list.get(i) - list.get(i - 1));
+            }
+            arr[0] = min;
+        }
+
+        return arr;
     }
 }
