@@ -26,8 +26,8 @@ class Solution {
             index++;
         }
 
-        Collections.sort(list);
-        System.out.println(list);
+        // Collections.sort(list);
+        // System.out.println(list);
         int[] arr = {-1, -1};
         if(list.size() > 1){
             arr[1] = list.get(list.size() - 1) - list.get(0);
