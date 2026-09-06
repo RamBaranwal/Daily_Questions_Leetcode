@@ -10,36 +10,46 @@
  */
 class Solution {
     public ListNode reverseBetween(ListNode head, int left, int right) {
-        if(right == left){
+        if(head == null || left == right){
             return head;
         }
+
+        ListNode pointer1 = null;
+        ListNode pointer2 = null;
+        ListNode pointer3 = null;
+        ListNode pointer4 = null;
+
         ListNode curr = head;
-        ListNode prev = null;
-        for(int i = 0; curr != null && i < left - 1; i++){
-            prev = curr;
+        int index = 1;
+
+        while(index < left){
+            pointer1 = curr;
             curr = curr.next;
+            index++;
         }
 
-        ListNode last = prev;
-        ListNode newEnd = curr;
+        pointer2 = curr;
 
-        ListNode next = curr.next;
-        for(int i = 0; curr != null && i < right - left + 1; i++){
+        ListNode prev = null;
+        while(curr != null && index <= right){
+            ListNode next = curr.next;
             curr.next = prev;
             prev = curr;
             curr = next;
-            if(next != null){
-                next = next.next;
-            }
+
+            index++;
         }
 
-        if(last == null){
-            head = prev;
+        pointer3 = prev;
+
+        pointer4 = curr;
+
+        pointer2.next = pointer4;
+        if(pointer1 == null){
+            return pointer3;
         }
-        else{
-            last.next = prev;
-        }
-        newEnd.next = curr;
+        
+        pointer1.next = pointer3;
 
         return head;
     }
