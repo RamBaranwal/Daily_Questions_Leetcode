@@ -2,7 +2,7 @@ class Solution {
     public boolean wordPattern(String pattern, String s) {
         HashMap<Character, String> map1 = new HashMap<>();
         HashMap<String, Character> map2 = new HashMap<>();
-        String[] str = s.split(" ");
+        String[] str = s.split("\\s+");
         if(str.length != pattern.length()) return false;
         for(int i = 0; i < pattern.length(); i++){
             char ch1 = pattern.charAt(i);
