@@ -15,7 +15,6 @@ class Solution {
 
         if(i >= 0){
             swap(nums, i, j);
-            // System.out.println(Arrays.toString(nums));
             reverse(nums, i + 1);
         }
         else{
@@ -27,17 +26,14 @@ class Solution {
         int temp = nums[i];
         nums[i] = nums[j];
         nums[j] = temp;
-        return;
     }
 
     private void reverse(int[] nums, int start){
         int last = nums.length - 1;
         while(start <= last){
-            // System.out.println(Arrays.toString(nums) + " " + start + " " + last);
             swap(nums, start, last);
             start++;
             last--;
         }
-        return;
     }
 }
