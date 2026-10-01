@@ -1,22 +1,17 @@
 class Solution {
     public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
         if(s.charAt(0) == ')' || s.charAt(0) == '}' || s.charAt(0) == ']'){
             return false;
         }
-
-        Stack<Character> stack = new Stack<>();
-        for(int i = 0; i < s.length(); i++){
-            char ch = s.charAt(i);
+        for(char ch : s.toCharArray()){
             if(ch == '(' || ch == '{' || ch == '['){
                 stack.push(ch);
             }
             else{
                 if(!stack.isEmpty()){
-                    char top = stack.pop();
-                    if(ch == ')' && top != '(' ||
-                        ch == '}' && top != '{' ||
-                        ch == ']' && top != '['
-                    ){
+                    char lastOne = stack.pop();
+                    if((ch == ')' && lastOne != '(') || (ch == '}' && lastOne != '{') || (ch == ']' && lastOne != '[')){
                         return false;
                     }
                 }
@@ -25,6 +20,9 @@ class Solution {
                 }
             }
         }
-        return stack.isEmpty();
+        if(!stack.isEmpty()){
+            return false;
+        }
+        return true;
     }
 }
