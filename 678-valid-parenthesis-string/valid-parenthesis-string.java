@@ -1,27 +1,37 @@
 class Solution {
     public boolean checkValidString(String s) {
-        int balance = 0;
+        Stack<Integer> open = new Stack<>();
+        Stack<Integer> star = new Stack<>();
 
-        // Left to Right
-        for (char c : s.toCharArray()) {
-            if (c == '(' || c == '*') balance++;
-            else balance--;
-
-            if (balance < 0) return false;
+        for(int i = 0; i < s.length(); i++){
+            char ch = s.charAt(i);
+            if(ch == '('){
+                open.push(i);
+            }
+            else if(ch == '*'){
+                star.push(i);
+            }
+            else{
+                if(!open.isEmpty()){
+                    open.pop();
+                }
+                else if(!star.isEmpty()){
+                    star.pop();
+                }
+                else{
+                    return false;
+                }
+            }
         }
-
-        balance = 0;
-
-        // Right to Left
-        for (int i = s.length() - 1; i >= 0; i--) {
-            char c = s.charAt(i);
-
-            if (c == ')' || c == '*') balance++;
-            else balance--;
-
-            if (balance < 0) return false;
+        while(!open.isEmpty() && !star.isEmpty()){
+            if(open.peek() < star.peek()){
+                open.pop();
+                star.pop();
+            }
+            else{
+                return false;
+            }
         }
-
-        return true;
+        return open.isEmpty();
     }
 }
